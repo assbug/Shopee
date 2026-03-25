@@ -1,0 +1,50 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: shopee_saas
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/shopee_saas
+      JWT_SECRET: super-secret
+      FERNET_KEY: 7vj7oQ2B5Gsm5ecBlhkbXi0jN7Ff7CjZn6BfLwxb9hQ=
+      POST_INTERVAL_SECONDS: 1200
+      FETCH_INTERVAL_SECONDS: 60
+      ERROR_RETRY_SECONDS: 30
+    ports:
+      - '8000:8000'
+
+  worker:
+    build: ./backend
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/shopee_saas
+      JWT_SECRET: super-secret
+      FERNET_KEY: 7vj7oQ2B5Gsm5ecBlhkbXi0jN7Ff7CjZn6BfLwxb9hQ=
+      POST_INTERVAL_SECONDS: 1200
+      FETCH_INTERVAL_SECONDS: 60
+      ERROR_RETRY_SECONDS: 30
+    command: ["python", "workers/bot_runner.py"]
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - '3000:3000'
+
+volumes:
+  postgres_data:
