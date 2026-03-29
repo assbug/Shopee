@@ -1,0 +1,6 @@
+id,nome,sobrenome,contato,origem_tipo,origem_nome,opt_in,removido
+101,Ana,Silva,+5511999999999,grupo,Ofertas VIP,true,false
+102,Bruno,Souza,@bruno,canal,Novidades,false,false
+103,Carla,Oliveira,+5511888888888,grupo,Ofertas VIP,true,false
+104,Diego,Pereira,+5511777777777,canal,Novidades,true,true
+105,Erika,Lima,+5511666666666,grupo,Clientes Ouro,true,false
