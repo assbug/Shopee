@@ -1,0 +1,23 @@
+[
+  {
+    "origem_tipo": "canal",
+    "origem_nome": "Novidades",
+    "extraidos": 2,
+    "aptos_envio": 0,
+    "removidos": 1
+  },
+  {
+    "origem_tipo": "grupo",
+    "origem_nome": "Clientes Ouro",
+    "extraidos": 1,
+    "aptos_envio": 1,
+    "removidos": 0
+  },
+  {
+    "origem_tipo": "grupo",
+    "origem_nome": "Ofertas VIP",
+    "extraidos": 2,
+    "aptos_envio": 2,
+    "removidos": 0
+  }
+]

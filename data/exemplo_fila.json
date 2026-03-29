@@ -1,0 +1,35 @@
+[
+  {
+    "id": "101",
+    "nome": "Ana",
+    "sobrenome": "Silva",
+    "contato": "+5511999999999",
+    "origem_tipo": "grupo",
+    "origem_nome": "Ofertas VIP",
+    "mensagem": "Oi, Ana! Como você está? Estou te mandando mensagem porque tenho um presente para você e achei melhor falar de forma bem pessoal. Se quiser conversar, eu fico por aqui 😊",
+    "status": "queued",
+    "agendado_para": "2026-03-22T19:02:40.968394+00:00"
+  },
+  {
+    "id": "103",
+    "nome": "Carla",
+    "sobrenome": "Oliveira",
+    "contato": "+5511888888888",
+    "origem_tipo": "grupo",
+    "origem_nome": "Ofertas VIP",
+    "mensagem": "Oi, Carla! Espero que você esteja bem. Vim te chamar de um jeito especial porque pensei em você e separei um presente. Se quiser, eu te explico melhor com calma ✨",
+    "status": "queued",
+    "agendado_para": "2026-03-22T19:03:25.968394+00:00"
+  },
+  {
+    "id": "105",
+    "nome": "Erika",
+    "sobrenome": "Lima",
+    "contato": "+5511666666666",
+    "origem_tipo": "grupo",
+    "origem_nome": "Clientes Ouro",
+    "mensagem": "Oi, Erika! Tudo certo? Lembrei de você hoje e quis te escrever com carinho: tenho um presente para você. Se fizer sentido, me responde e eu te conto os detalhes 🌷",
+    "status": "queued",
+    "agendado_para": "2026-03-22T19:04:10.968394+00:00"
+  }
+]
