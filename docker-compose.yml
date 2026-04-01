@@ -1,0 +1,46 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: shopee_saas
+    ports:
+      - '5432:5432'
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/shopee_saas
+      JWT_SECRET: super-secret
+      ENCRYPTION_KEY: super-encryption-secret
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+
+  worker:
+    build: ./backend
+    command: python -m app.workers.bot_runner
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/shopee_saas
+      JWT_SECRET: super-secret
+      ENCRYPTION_KEY: super-encryption-secret
+    depends_on:
+      - db
+      - backend
+
+  frontend:
+    build: ./frontend
+    environment:
+      VITE_API_URL: http://localhost:8000
+    ports:
+      - '5173:5173'
+    depends_on:
+      - backend
+
+volumes:
+  pg_data:
